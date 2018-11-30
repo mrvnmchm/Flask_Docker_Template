@@ -37,3 +37,4 @@ Base application template for Flask and Jinja2 utilizing Docker container.
 
 4. **Execute:** `Flask run`
 5. **ENJOY :)**
+![image](https://user-images.githubusercontent.com/11682032/49302746-f014ce80-f495-11e8-825e-1c6c507f75b8.png)
