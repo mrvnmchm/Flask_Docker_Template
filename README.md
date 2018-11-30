@@ -7,3 +7,7 @@
 Base application template for Flask and Jinja2 utilizing Docker container.
 
 ## Usage
+
+1. Clone/Download repo
+2. move into the repo folder
+3. `pipenv install -r requirements.txt`
