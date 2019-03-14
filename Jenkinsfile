@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pipenv install -r requirements.txt | Flask run'
+                sh 'pipenv install -r requirements.txt'
             }
         }
     }
