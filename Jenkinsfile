@@ -7,6 +7,9 @@ pipeline {
                     image 'mrvnmchm/flask_docker_template'
                 }
             }
+            steps {
+                sh 'pipenv install -r requirements.txt | Flask run'
+            }
         }
     }
 }
