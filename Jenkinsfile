@@ -1,11 +1,9 @@
 pipeline {
-    agent {
-        dockerfile true
-    }
+    agent any
     stages {
         stage ('Build') {
             steps {
-                sh 'pipenv install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
     }
