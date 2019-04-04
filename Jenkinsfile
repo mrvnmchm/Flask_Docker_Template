@@ -1,9 +1,9 @@
 pipeline {
     agent {
-                docker {
-                    image 'mrvnmchm/flask_docker_template'
-                }
-            }
+        docker {
+            image 'mrvnmchm/flask_docker_template'
+        }
+    }
     stages {
         stage ('Build') {
             steps {
