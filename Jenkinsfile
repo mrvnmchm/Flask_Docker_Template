@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                sh 'apt install pip | pipenv install -r requirements.txt'
+                sh 'sudo apt-get install pipenv | pipenv install -r requirements.txt'
             }
         }
     }
