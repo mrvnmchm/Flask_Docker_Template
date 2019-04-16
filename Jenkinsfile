@@ -1,9 +1,24 @@
 pipeline {
-    agent { docker { image 'mrvnmchm/flask_docker_template:latest' }}
+    agent any
     stages {
+        stage ('Prep') {
+            steps {
+                echo 'Preparing'
+            }
+        }
+        stage ('Build') {
+            steps {
+                echo 'Building'
+            }
+        }
         stage ('Test') {
             steps {
-                sh 'flask --version | python3 --version'
+                echo 'Testing'
+            }
+        }
+        stage ('Deploy') {
+            steps {
+                echo 'Deploying'
             }
         }
     }
