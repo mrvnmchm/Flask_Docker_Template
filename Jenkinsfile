@@ -1,19 +1,10 @@
 pipeline {
-  agent {
-    dockerfile true
-  }
-  stages {
-    stage('Build') {
-      agent {
-        dockerfile {
-          filename 'Dockerfile'
+    agent { docker { image 'mrvnmchm:latest' }}
+    stages {
+        stage ('Test') {
+            steps {
+                sh 'flask --version | python3 --version | echo 'Hi Mom!''
+            }
         }
-
-      }
-      steps {
-        sh 'python --version'
-        sh 'pip install -r requirements.txt'
-      }
     }
-  }
 }
