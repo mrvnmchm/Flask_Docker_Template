@@ -6,7 +6,7 @@ pipeline {
                 node ("master") {
                     checkout scm
                     script {
-                        withDockerServer([ uri: 'tcp://172.30.1.7:4342' ]) {
+                        withDockerServer([ uri: 'tcp://172.30.1.7:4243' ]) {
                             withDockerRegistry ([ url: 'http://172.30.1.7:5000/v2']) {
                                 sh 'docker pull mrvnmchm/speedtria'
                             }
