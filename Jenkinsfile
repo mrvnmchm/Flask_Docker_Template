@@ -1,5 +1,9 @@
 pipeline {
-    agent { label 'master' }
+    agent {
+        docker.withServer('tcp://172.03.1.7:4342'){
+            docker.image('mrvnmchm/flask_docker_template')
+        }
+    }
     stages {
         stage ('Prep') {
             steps {
