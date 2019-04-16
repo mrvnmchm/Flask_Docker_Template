@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Test') {
             steps {
-                sh 'flask --version | python3 --version | echo 'Hi Mom!''
+                sh 'flask --version | python3 --version'
             }
         }
     }
