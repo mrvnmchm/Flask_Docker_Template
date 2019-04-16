@@ -8,7 +8,7 @@ pipeline {
                     script {
                         withDockerServer([ uri: 'tcp://172.30.1.7:4342' ]) {
                             withDockerRegistry ([ url: 'http://172.30.1.7:5000/v2']) {
-                                docker { image 'mrvnmchm/speedtria'}
+                                sh 'docker pull mrvnmchm/speedtria'
                             }
                         }
                     }
