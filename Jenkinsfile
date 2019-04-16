@@ -2,20 +2,18 @@ pipeline {
     agent none
     stages {
         stage ('Prep') {
-            agent {
-                docker {
-                    image 'ubuntu'
-                }
-            }
             steps {
                 echo 'Preparing'
+                withDockerServer('tcp://172.30.1.7:4342') {
+                    withDockerRegistry ('http://172.30.1.7:5000/v2') {
+                        image 'mrvnmchm/speedtria'
+                    }
+                }
             }
         }
         stage ('Build') {
-            agent { docker 'mrvnmchm/flask_docker_template'}
             steps {
                 echo 'Building'
-                sh 'python app.py'
             }
         }
         stage ('Test') {
