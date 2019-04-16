@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'mrvnmchm:latest' }}
+    agent { docker { image 'mrvnmchm/flask_docker_template:latest' }}
     stages {
         stage ('Test') {
             steps {
