@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Prep') {
             steps {
-                node {
+                node ("master") {
                     checkout scm
                     script {
                         withDockerServer([ uri: 'tcp://172.30.1.7:4342' ]) {
