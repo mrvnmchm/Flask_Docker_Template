@@ -4,9 +4,11 @@ pipeline {
         stage ('Prep') {
             steps {
                 echo 'Preparing'
-                withDockerServer('tcp://172.30.1.7:4342') {
-                    withDockerRegistry ('http://172.30.1.7:5000/v2') {
-                        image 'mrvnmchm/speedtria'
+                docker.withTool("default") {
+                    withDockerServer([ uri: 'tcp://172.30.1.7:4342' ]) {
+                        withDockerRegistry ([ url: 'http://172.30.1.7:5000/v2']) {
+                            image 'mrvnmchm/speedtria'
+                        }
                     }
                 }
             }
