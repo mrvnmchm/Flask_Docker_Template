@@ -2,6 +2,11 @@ pipeline {
     agent none
     stages {
         stage ('Prep') {
+            agent {
+                docker {
+                    image 'ubuntu'
+                }
+            }
             steps {
                 echo 'Preparing'
             }
