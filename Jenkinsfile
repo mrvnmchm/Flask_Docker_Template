@@ -17,7 +17,7 @@ pipeline {
                             withDockerRegistry ([ url: 'http://172.30.1.7:5000/v2']) {
                                 sh 'docker build -t fdt .'
                                 sh 'docker run -d -p 8181:80 --name=fdt fdt'
-                                sh 'curl "http://172.30.1.7:8181"'
+                                sh 'docker --version'
                             }
                         }
                     }
@@ -27,6 +27,13 @@ pipeline {
         stage ('Test') {
             steps {
                 echo 'Testing'
+                script {
+                    withDockerServer([ uri: 'tcp://172.30.1.7:4243' ]) {
+                        withDockerRegistry ([ url: 'http://172.30.1.7:5000/v2']) {
+                                sh 'docker stop fdt && docker rm fdt'
+                        }
+                    }
+                }
             }
         }
         stage ('Deploy') {
